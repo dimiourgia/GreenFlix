@@ -1,0 +1,63 @@
+.topNavWrapper{
+    position: fixed;
+    z-index: 100;
+    background: #fff;
+    height: calc(2*3.477rem);
+    top: 3.477rem;
+    width: 100%;
+}
+.topNavContainer{
+    margin-top: 3.023rem;
+    height: calc(3.47rem - 8px);
+    box-sizing: border-box;
+    margin-left: 1.2rem;
+    display: flex;
+}
+
+.topNavCategoryItem{
+    flex:1;
+}
+
+.iconContainer, .captionContainer{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    height: 50%;
+}
+
+.iconContainer >img{
+    transform: scale(.69);
+}
+
+.captionContainer >p{
+    margin:0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 143%;
+    font-size: 11.5px;
+}
+
+.active {
+    color: #2979FF;
+}
+
+.inactive {
+    color: #9696A0;
+}
+
+.clickableItem{
+    border:0px;
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+    .caption{
+        visibility: hidden;
+    }
+}
