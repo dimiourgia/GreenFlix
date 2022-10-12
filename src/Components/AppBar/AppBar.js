@@ -7,18 +7,7 @@ import searchLogo from '../../images/searchLogo.svg';
 import closeLogo from '../../images/close.svg';
 
 
-const AppBar = ({searchString, onChangeHandler, clearSearchString, filters})=>{
-
-    const [filterSpanClassName, setFilterSpanClassName] = useState('hidden');
-
-    const filterMouseEnterHandler = ()=>{ 
-        console.log('mouseEntered');
-        setFilterSpanClassName('visible')
-    }
-    const filterMouseLeaveHandler = ()=>{
-        console.log('mouseLeft');
-        setFilterSpanClassName('hidden');
-    }
+const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
 
     return(
         <motion.div animate={{opacity:1}} initial={{opacity:0}} id='AppBar'>
@@ -32,25 +21,6 @@ const AppBar = ({searchString, onChangeHandler, clearSearchString, filters})=>{
             </div>
             
             <div className='lastWrapper'>
-                <div className={'filterWrapper'}>
-                    <button 
-                    onMouseEnter={filterMouseEnterHandler}
-                    className='filterButton'>
-                        <img src={searchLogo}/>
-                        Filter
-                    </button>
-                </div>
-                <span 
-                className={filterSpanClassName}
-                onMouseLeave={filterMouseLeaveHandler}>
-                    <p>Type:</p>
-                    <button onClick={filters.applyMovieFilter}>Movies</button>
-                    <button onClick={filters.applyTVShowFilter}>TV Shows</button>
-                    <p>Gener:</p>
-                    <button >Action</button>
-                    <button >Thriller</button>
-                    <button>Comedy</button>
-                </span>
             </div>
 
         </motion.div>
@@ -70,7 +40,7 @@ return(
         <input type='text' placeholder='Search Item' className='inputSearch' onChange={onChangeHandler} value={searchString}/>
         
         <div className='searchLogoWrapper' >
-            <button className='closeButton'>
+            <button className='closeButton' onClick={clearSearchString}>
                 <img id='closeLogo' src={closeLogo} alt='Close Logo' />
             </button>
         </div>

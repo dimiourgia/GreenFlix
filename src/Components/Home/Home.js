@@ -1,21 +1,18 @@
 import React from "react";
 import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
-
 import './Home.css';
 
-import product1 from '../../product1.png';
 
-
-const Home = ({addToCartHandler, items}) => {
+const Home = ({items}) => {
+    console.log(items);
     return(
     <div className="cardsContainer">
         {items.map(item => 
         <ItemCard 
-            image={product1}
-            desccription={item.desccription}
-            price={item.price}
-            shippingStatus={item.shippingStatus}
-            addToCartHandler={addToCartHandler}
+            key={item.id}
+            image={`./db_images/${item.image_path}`}
+            title={item.title}
+            year={item.year}
         >
         </ItemCard>)}        
     </div>
@@ -23,24 +20,12 @@ const Home = ({addToCartHandler, items}) => {
 }
 
 
-const ItemCard = ({image, desccription, price, shippingStatus, addToCartHandler}) => {
+const ItemCard = ({title, year, image }) => {
+    console.log("image path is"+image);
     return(
     <motion.div animate={{opacity:1}} initial={{opacity:0}}  className="cardWrapper">
         <div className="itemImageContainer">
-            <img src={image} alt='product' />
-        </div>
-
-        <div className="itemDetails">
-            <div className="itemDescription">
-                <p>{desccription}</p>
-            </div>
-            <div className="itemPrice">{price}</div>
-            <div className='itemShippingStatus'>
-                <p>{shippingStatus}</p>
-            </div>
-            <div className='addToCartContainer'>
-                <button className="addToCartButton" onClick={addToCartHandler}>Add to Cart</button>
-            </div>
+            <img src={image} alt={title+year} />
         </div>
     </motion.div>
     )

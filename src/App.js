@@ -3,6 +3,8 @@ import { useState } from 'react';
 import AppBar from './Components/AppBar/AppBar';
 import Filters from './Components/Filters/Filters';
 import HomeSkeleton from './Components/HomeSkeleton/HomeSkeleton';
+import Home from './Components/Home/Home';
+import JSON_data from './databae.json';
 
 
 function App() {
@@ -59,7 +61,17 @@ function App() {
 
   const filters = {applyMovieFilter:moviesFilterHandler, applyTVShowFilter:tvshowsFilterHandler};
 
+  //simulate fetching api with a delay of 4,6 seconds
+  const delay = Math.floor(Math.random() * 6000) + 4000;
+  const [loaded, setLoaded] = useState(false);
+  const [movieList, setMovieList] = useState('');
 
+  const apiCall = ()=>{
+    setMovieList(JSON_data.movies);
+    setLoaded(true);
+  }
+
+  setTimeout(apiCall,delay);
 
   return (
     <div>
@@ -70,7 +82,8 @@ function App() {
       filters={filters}
       ></AppBar>
       <Filters filters={filters} classnames={classnames}></Filters>
-      <HomeSkeleton></HomeSkeleton>
+      {!loaded && <HomeSkeleton/>}
+      {loaded && <Home items={movieList}></Home>}      
     </div>
   );
 }

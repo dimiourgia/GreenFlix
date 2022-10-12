@@ -1,0 +1,10 @@
+{
+    "movies": [
+      { "id": 1, "title": "Billy Lynns Long Halftime Walk", "year":"2016", "tags": ["adventure", "family"], "image_path": "1.jpg" },
+      { "id": 2, "title": "Evil Dead", "year":"2013", "tags": ["adventure", "action"], "image_path":"2.jpg"},
+      { "id": 3, "title": "Dope", "year":"2015", "tags": ["thriller", "comedy", "crime", "family"], "image_path":"3.jpg"},
+      { "id": 4, "title": "Next Gen", "year":"2018", "tags": ["family", "sci-fi"], "image_path":"4.jpg"},
+      { "id": 5, "title": "Star Trek", "year":"2013", "tags": ["adventure", "sci-fi", "action", "family"], "image_path":"5.jpg"},
+      { "id": 6, "title": "Superbad", "year":"2007", "tags": ["comedy", "teenage", "family"], "image_path":"6.jpg"}
+    ]
+  }
