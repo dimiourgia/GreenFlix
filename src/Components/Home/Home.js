@@ -4,7 +4,6 @@ import './Home.css';
 
 
 const Home = ({items}) => {
-    console.log(items);
     return(
     <div className="cardsContainer">
         {items.map(item => 
@@ -21,7 +20,6 @@ const Home = ({items}) => {
 
 
 const ItemCard = ({title, year, image }) => {
-    console.log("image path is"+image);
     return(
     <motion.div animate={{opacity:1}} initial={{opacity:0}}  className="cardWrapper">
         <div className="itemImageContainer">

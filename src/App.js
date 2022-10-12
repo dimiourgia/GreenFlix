@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import AppBar from './Components/AppBar/AppBar';
 import Filters from './Components/Filters/Filters';
@@ -21,10 +21,14 @@ function App() {
   }
 
 
+
+  const [activeFilters, setActiveFilters] = useState(["adventure"]);
+
+
   const moviesFilterHandler= ()=>{
     console.log('movie filter applied');
 
-    if(moviesClass=='unselected'){  
+    if(moviesClass==='unselected'){  
       setMoviesClass('selected');
       //set movies filter
     }
@@ -35,13 +39,10 @@ function App() {
   }
 
 
-
-
-
   const tvshowsFilterHandler= ()=>{
     console.log('tv show filter applied');
     
-    if(tvshowsClass=='unselected'){  
+    if(tvshowsClass==='unselected'){  
       setTvshowsClass('selected');
       //set tvshows filter
     }
@@ -52,17 +53,40 @@ function App() {
   }
 
 
+  const actionFilterHandler= ()=>{
+    console.log('action filter clicked');
+    
+    if(actionClass==='unselected'){  
+      setActionClass('selected');
+      setActiveFilters([...activeFilters,'action']);
+      console.log(activeFilters);
+
+      //set tvshows filter
+    }
+    else{
+      setActionClass('unselected');
+      setActiveFilters(activeFilters.splice(activeFilters.indexOf('action'),1));
+      console.log(activeFilters);
+      //remove tvshows filter
+    }
+  }
+
 
   const [moviesClass, setMoviesClass] = useState('unselected');
   const [tvshowsClass,setTvshowsClass] = useState('selected');
+  const [actionClass, setActionClass] = useState('unselected');
 
-  const classnames = {movies:moviesClass, tvshows:tvshowsClass}
+  const classnames = {movies:moviesClass, tvshows:tvshowsClass, action:actionClass}
 
 
-  const filters = {applyMovieFilter:moviesFilterHandler, applyTVShowFilter:tvshowsFilterHandler};
+  const filters = {
+    applyMovieFilter:moviesFilterHandler, 
+    applyTVShowFilter:tvshowsFilterHandler,
+    applyActionFilter:actionFilterHandler
+  };
 
   //simulate fetching api with a delay of 4,6 seconds
-  const delay = Math.floor(Math.random() * 6000) + 4000;
+  const delay = Math.floor(Math.random() * 2000) + 1000;
   const [loaded, setLoaded] = useState(false);
   const [movieList, setMovieList] = useState('');
 
@@ -72,6 +96,21 @@ function App() {
   }
 
   setTimeout(apiCall,delay);
+
+  //update state whenever a filter is applied or removed
+
+  useEffect(()=>{
+    if(activeFilters.length===0) setMovieList(JSON_data.movies);
+    else{
+      const filterdMovies = JSON_data.movies.filter(movie => {activeFilters.forEach(filter => {
+        movie.tags.forEach(tag =>{
+          return tag==filter;
+        })
+      })})
+      setMovieList(filterdMovies);
+    }
+  },[activeFilters])
+
 
   return (
     <div>
