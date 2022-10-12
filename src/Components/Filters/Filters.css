@@ -1,0 +1,30 @@
+.filtersWrapper{
+    position: fixed;
+    z-index: 100;
+    margin-top:-5.937rem;
+    padding:1rem;
+    width:100%;
+    box-sizing: border-box;
+}
+.filtersWrapper>button{
+    margin-left: 8px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    font-size: 13.5px;
+    letter-spacing: 0.012em;
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+}
+
+.selected{
+    background: var(--primary);
+    color: white;
+}
+
+.unselected{
+    background: transparent;
+    color:var(--primary);
+}

@@ -1,3 +1,8 @@
+:root{
+    --primary:#18763a;
+    --searchBoxHeight:2.2rem;
+}
+
 #AppBar{
     z-index:100;
     position: fixed;
@@ -12,6 +17,7 @@
 }
 
 #leftLogo{
+    transform: scale(.98);
     margin-left: .5rem;
     width: 10rem;
     height: 3.477rem;
@@ -27,45 +33,44 @@
 .searchLogoWrapper{
     padding: .651rem;
     width:2rem;
-    height: 2rem;
+    height: var(--searchBoxHeight);
     box-sizing: border-box;
 
 }
 
 #searchLogo{
-    width:12.5px;
-    height:12.5px;
-    transform: translate(-2px,-5px);
+    width:14px;
+    height:14px;
 }
 
 #closeLogo{
-    width:10px;
-    height:10px;
-    transform: translate(-1px,-5px);
+    width:11px;
+    height:11px;
+    transform: translate(-1px,-3px);
 }
 
 .searchBoxWrapper{
     display: flex;
-    height: 2rem;
+    height: var(--searchBoxHeight);
     width: 100%;
-    background: #EDEDF0;
+    background: #fff;
     border-radius: 4.167rem;
+    border:1px solid var(--primary);
     vertical-align:middle;
     margin-top: .74rem;
-    box-sizing: border-box;
 }
 
 .inputSearch{
-    color: #19191D;
-    background-color: #EDEDF0;
+    color: var(--primary);
+    background-color: #FFF;
     border: 0px;
-    height: 2rem;
+    height: var(--searchBoxHeight);
     width: 100%;
     padding:0px;
 }
 
-.inputSearch :focus-visible{
-    border:0px;
+:focus-visible{
+    outline-width: 0px;
 }
 
 
@@ -77,13 +82,37 @@
 .midWrapper{
     flex: 2.8;
 }
+.lastWrapper{
+    position: relative;
+}
 
-.registerButton, .inputSearch{
+.inputSearch{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 12.5px;
+    font-size: 13px;
     line-height: 158%;
+}
+
+.filterWrapper{
+    margin-left: calc(50% - 30px);
+    margin-top: .74rem;
+    height: var(--searchBoxHeight);
+}
+
+.filterButton{
+    display: none;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    font-size: 13.5px;
+    letter-spacing: 0.012em;
+    text-align: center;
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
 }
 
 .closeButton{
@@ -93,4 +122,46 @@
     margin: 0px;
     border: 0px;
     background: transparent;
+}
+
+.hidden{
+    display: none;
+}
+
+.visible{
+    background: #FFF;
+    box-sizing: border-box;
+    padding: 4px;
+    position: absolute;
+    left:15px;
+    width: calc(90% - 15px);
+    text-align: center;
+    margin-top: 3rem;
+    display: block;
+    height:200px;
+    border:1px solid black;
+}
+
+.visible>button{
+    margin-left: 8px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    font-size: 14.5px;
+    letter-spacing: 0.012em;
+    text-align: center;
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid var(--primary);
+
+}
+
+.visible>p{
+    color:var(--primary);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 158%;
 }
