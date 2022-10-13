@@ -12,6 +12,7 @@ const Home = ({items}) => {
             image={`./db_images/${item.image_path}`}
             title={item.title}
             year={item.year}
+            tags={item.tags}
         >
         </ItemCard>)}        
     </div>
@@ -19,11 +20,20 @@ const Home = ({items}) => {
 }
 
 
-const ItemCard = ({title, year, image }) => {
+const ItemCard = ({title, year, image, tags }) => {
     return(
     <motion.div animate={{opacity:1}} initial={{opacity:0}}  className="cardWrapper">
         <div className="itemImageContainer">
             <img src={image} alt={title+year} />
+        </div>
+        <div className="title">
+            <p><b>{title}</b></p>
+        </div>
+        <div className="title">
+            <p><b>Release Year:</b> {year}</p>
+        </div>
+        <div className="title">
+            <p><b>Tags:</b>{tags.map(tag=>` ${tag} `)}</p>
         </div>
     </motion.div>
     )

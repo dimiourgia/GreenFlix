@@ -2,14 +2,14 @@ import React from 'react';
 import './Filters.css';
 
 
-const Filters = ({filters,classnames})=>{
+const Filters = ({filterHandler,classnames})=>{
     return(
         <div className='filtersWrapper'>
-            <button onClick={filters.applyMovieFilter} className={classnames.movies}>Movies</button>
-            <button onClick={filters.applyTVShowFilter} className={classnames.tvshows}>TV Shows</button>
-            <button onClick={filters.applyActionFilter} className={classnames.action}>Action</button>
-            <button >Thriller</button>
-            <button>Comedy</button>
+            <button onClick={filterHandler('action')} className={classnames.action}>Action</button>
+            <button onClick={filterHandler('adventure')} className={classnames.adventure}>Adventure</button>
+            <button onClick={filterHandler('thriller')} className={classnames.thriller}>Thriller</button>
+            <button onClick={filterHandler('comedy')} className={classnames.comedy}>Comedy</button>
+            <button onClick={filterHandler('family')} className={classnames.family}>Family</button>
         </div>
     );
 }

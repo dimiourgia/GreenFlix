@@ -8,27 +8,24 @@ const items=[1,2,3,4,5,6,7,8,9,10];
 
 const HomeSkeleton = ()=>(
     <div className="sk_cardsContainer">
-        {items.map(item => <ItemCard /> )}        
+        {items.map(item => <ItemCard key={item} /> )}        
     </div>
 )
 
 
 const ItemCard = () => {
     return(
-    <motion.div animate={{scale: [1,.98,1]}} 
-                //initial={{scale:0}}  
+    <motion.div animate={{scale: [1,.98,1]}}  
                 transition={{repeat:Infinity, duration:2}}
                 className="sk_cardWrapper">
         <div className="sk_itemImageContainer">
         </div>
 
         <div className="sk_itemDetails">
-            <div className="sk_itemDescription">
+            <div className="sk_itemTitle">
             </div>
-            <div className="sk_itemPrice"></div>
-            <div className='sk_itemShippingStatus'>
-            </div>
-            <div className='sk_addToCartContainer'>
+            <div className="sk_itemYear"></div>
+            <div className='sk_itemTags'>
             </div>
         </div>
     </motion.div>

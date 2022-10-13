@@ -11,87 +11,170 @@ function App() {
 
 
   //ApBar states and methods
+ 
+
+  const [movieList, setMovieList] = useState(JSON_data.movies); //movies displayed on page
+  const [activeFilters, setActiveFilters] = useState([]);
+
+  //searcbox states and methods
   const [searchString, setSearchString] = React.useState('');
   const searchStringChageHandler = (event) =>{
     setSearchString(event.target.value);
+    if(event.target.value!=''){
+      var searchedFor = JSON_data.movies.filter(movie=>movie.title.includes(event.target.value));
+      setMovieList(searchedFor);
+    }
+    else{
+      setMovieList(JSON_data.movies);
+    }
+    
   } 
   
   const clearSearchString = () => {
     setSearchString('');
+    setMovieList(JSON_data.movies);
   }
+  //---------------------------------------------------------------
 
 
 
-  const [activeFilters, setActiveFilters] = useState(["adventure"]);
+  //classnames for filters and their states
 
-
-  const moviesFilterHandler= ()=>{
-    console.log('movie filter applied');
-
-    if(moviesClass==='unselected'){  
-      setMoviesClass('selected');
-      //set movies filter
-    }
-    else{
-      setMoviesClass('unselected');
-      //remove movies filter
-    }
-  }
-
-
-  const tvshowsFilterHandler= ()=>{
-    console.log('tv show filter applied');
-    
-    if(tvshowsClass==='unselected'){  
-      setTvshowsClass('selected');
-      //set tvshows filter
-    }
-    else{
-      setTvshowsClass('unselected');
-      //remove tvshows filter
-    }
-  }
-
-
-  const actionFilterHandler= ()=>{
-    console.log('action filter clicked');
-    
-    if(actionClass==='unselected'){  
-      setActionClass('selected');
-      setActiveFilters([...activeFilters,'action']);
-      console.log(activeFilters);
-
-      //set tvshows filter
-    }
-    else{
-      setActionClass('unselected');
-      setActiveFilters(activeFilters.splice(activeFilters.indexOf('action'),1));
-      console.log(activeFilters);
-      //remove tvshows filter
-    }
-  }
-
-
-  const [moviesClass, setMoviesClass] = useState('unselected');
-  const [tvshowsClass,setTvshowsClass] = useState('selected');
   const [actionClass, setActionClass] = useState('unselected');
+  const [adventureClass, setAdventureClass] = useState('unselected');
+  const [comedyClass, setComedyClass] = useState('unselected');
+  const [thrillerClass, setThrillerClass] = useState('unselected');
+  const [familyClass, setFamilyClass] = useState('unselected');
 
-  const classnames = {movies:moviesClass, tvshows:tvshowsClass, action:actionClass}
+  const classnames = {
+    action:actionClass,
+    adventure:adventureClass,
+    comedy:comedyClass,
+    thriller:thrillerClass,
+    family:familyClass
+  }
 
 
+  //HOF for handling all filter clicking events -> returns a handler for that event 
+
+  const filterHandler = function(filter){
+    const debug = true;
+
+    switch(filter){
+
+      case "action": 
+      return () => {
+          if(debug) console.log('action filter clicked'); 
+          if(actionClass=='unselected'){  
+            setActionClass('selected');
+            setActiveFilters([...activeFilters,'action']);
+            if(debug) console.log(activeFilters);
+          }
+          else{
+            setActionClass('unselected');
+            const updatedActiveFilters = activeFilters.slice();
+            const index = updatedActiveFilters.indexOf('action');
+            updatedActiveFilters.splice(index,1);
+            setActiveFilters(updatedActiveFilters);
+            if(debug) console.log(updatedActiveFilters);
+          }
+      }
+
+      case "adventure": 
+      return () => {
+          if(debug) console.log('adventure filter clicked'); 
+          if(adventureClass=='unselected'){  
+            setAdventureClass('selected');
+            setActiveFilters([...activeFilters,'adventure']);
+            if(debug) console.log(activeFilters);
+          }
+          else{
+            setAdventureClass('unselected');
+            const updatedActiveFilters = activeFilters.slice();
+            const index = updatedActiveFilters.indexOf('adventure');
+            updatedActiveFilters.splice(index,1);
+            setActiveFilters(updatedActiveFilters);
+            if(debug) console.log(activeFilters);
+          }
+      }
+
+      case "comedy": 
+      return () => {
+          if(debug) console.log('comedy filter clicked'); 
+          if(comedyClass=='unselected'){  
+            setComedyClass('selected');
+            setActiveFilters([...activeFilters,'comedy']);
+            if(debug) console.log(activeFilters);
+          }
+          else{
+            setComedyClass('unselected');
+            const updatedActiveFilters = activeFilters.slice();
+            const index = updatedActiveFilters.indexOf('comedy');
+            updatedActiveFilters.splice(index,1);
+            setActiveFilters(updatedActiveFilters);
+            if(debug) console.log(activeFilters);
+          }
+      }
+
+      case "thriller": 
+      return () => {
+          if(debug) console.log('thriller filter clicked'); 
+          if(thrillerClass=='unselected'){  
+            setThrillerClass('selected');
+            setActiveFilters([...activeFilters,'thriller']);
+            if(debug) console.log(activeFilters);
+          }
+          else{
+            setThrillerClass('unselected');
+            const updatedActiveFilters = activeFilters.slice();
+            const index = updatedActiveFilters.indexOf('thriller');
+            updatedActiveFilters.splice(index,1);
+            setActiveFilters(updatedActiveFilters);
+            if(debug) console.log(activeFilters);
+          }
+      }
+
+      case "family": 
+      return () => {
+          if(debug) console.log('family filter clicked'); 
+          if(familyClass=='unselected'){  
+            setFamilyClass('selected');
+            setActiveFilters([...activeFilters,'family']);
+            if(debug) console.log(activeFilters);
+          }
+          else{
+            setFamilyClass('unselected');
+            const updatedActiveFilters = activeFilters.slice();
+            const index = updatedActiveFilters.indexOf('family');
+            updatedActiveFilters.splice(index,1);
+            setActiveFilters(updatedActiveFilters);
+            if(debug) console.log(activeFilters);
+          }
+      }
+
+
+
+
+      default: return;
+    }
+  }
+
+ 
+ 
+  /*
   const filters = {
     applyMovieFilter:moviesFilterHandler, 
     applyTVShowFilter:tvshowsFilterHandler,
     applyActionFilter:actionFilterHandler
   };
+  
+  */
 
   //simulate fetching api with a delay of 4,6 seconds
   const delay = Math.floor(Math.random() * 2000) + 1000;
   const [loaded, setLoaded] = useState(false);
-  const [movieList, setMovieList] = useState('');
 
   const apiCall = ()=>{
-    setMovieList(JSON_data.movies);
     setLoaded(true);
   }
 
@@ -99,16 +182,32 @@ function App() {
 
   //update state whenever a filter is applied or removed
 
-  useEffect(()=>{
-    if(activeFilters.length===0) setMovieList(JSON_data.movies);
-    else{
-      const filterdMovies = JSON_data.movies.filter(movie => {activeFilters.forEach(filter => {
-        movie.tags.forEach(tag =>{
-          return tag==filter;
-        })
-      })})
-      setMovieList(filterdMovies);
+    //function that rturns a new array of movies/tvshows after applying a bunch of filters
+    const filterdArray = (filters, movies) => {
+      var result=[];
+        
+        filters.forEach(filter =>{
+          result.forEach(m =>{movies = movies.filter(movie=>movie.id!=m.id)});
+          result = [...result,...movies.filter(movie => movie.tags.find(tag=> tag==filter))];
+        });
+        return result;
     }
+
+  //update filterdMovies state on applying or removing filters
+
+  useEffect(()=>{
+    if(activeFilters.length===0) {
+      console.log("from useeffect & no filters");
+      setMovieList(JSON_data.movies);
+    }
+    else{
+      const filterdMovies = filterdArray(activeFilters,JSON_data.movies);
+      setMovieList(filterdMovies);
+      console.log("from useeffect & filters active: filterdMovies" + filterdMovies.length +"  activeFilters:"+ activeFilters, activeFilters.length);
+    }
+
+    console.log("from useEffect:");
+    
   },[activeFilters])
 
 
@@ -118,9 +217,8 @@ function App() {
       searchString = {searchString} 
       onChangeHandler = {searchStringChageHandler} 
       clearSearchString= {clearSearchString} 
-      filters={filters}
       ></AppBar>
-      <Filters filters={filters} classnames={classnames}></Filters>
+      <Filters filterHandler={filterHandler} classnames={classnames}></Filters>
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}      
     </div>

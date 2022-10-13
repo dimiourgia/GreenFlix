@@ -40,27 +40,27 @@
     background-color: var(--sk_primary);
 }
 
-.sk_itemDescription{
+.sk_itemTitle{
     margin-bottom: 5px;
     border-radius: 3px;
-    width: 100%;
-    height: 3.12rem;
+    width: 25%;
+    height: 1.52rem;
     background-color: var(--sk_secondary);
 }
 
-.sk_itemPrice{
+.sk_itemYear{
     margin-bottom: 5px;
     border-radius: 2px;
-    width: 15%;
-    height: 1.26rem;
+    width: 35%;
+    height: 1.52rem;
     background-color: var(--sk_secondary);
 }
 
-.sk_addToCartContainer{
+.sk_itemTags{
     margin-top: 3px;
     padding: 0px;
-    height:2rem;
-    width: 100%;
+    height:1.52rem;
+    width: 55%;
     background-color: var(--sk_secondary);
 }
 
@@ -87,11 +87,4 @@
     .sk_cardsContainer{
         grid-template-columns: repeat(4, 1fr);
     }
-}
-
-.sk_itemShippingStatus{
-    height: 1rem;
-    width: 75%;
-    margin-bottom: 5px;
-    background-color: var(--sk_secondary);
 }
