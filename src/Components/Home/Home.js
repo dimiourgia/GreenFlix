@@ -29,10 +29,10 @@ const ItemCard = ({title, year, image, tags }) => {
         <div className="title">
             <p><b>{title}</b></p>
         </div>
-        <div className="title">
+        <div className="year">
             <p><b>Release Year:</b> {year}</p>
         </div>
-        <div className="title">
+        <div className="tags">
             <p><b>Tags:</b>{tags.map(tag=>` ${tag} `)}</p>
         </div>
     </motion.div>

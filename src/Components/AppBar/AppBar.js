@@ -19,7 +19,6 @@ const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
             <div className='midWrapper'>
                 <SearchBox searchString={searchString} onChangeHandler={onChangeHandler} clearSearchString={clearSearchString}></SearchBox>
             </div>
-            
             <div className='lastWrapper'>
             </div>
 
@@ -37,7 +36,7 @@ return(
             <img id='searchLogo'  src={searchLogo} alt='Search Logo'/>
         </div>
         
-        <input type='text' placeholder='Search Item' className='inputSearch' onChange={onChangeHandler} value={searchString}/>
+        <input type='text' placeholder='Search movies' className='inputSearch' onChange={onChangeHandler} value={searchString}/>
         
         <div className='searchLogoWrapper' >
             <button className='closeButton' onClick={clearSearchString}>

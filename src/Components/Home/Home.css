@@ -1,7 +1,7 @@
 .cardWrapper{
     margin: auto;
-    color:var(--primary);
-    height: 20.1rem;
+    color:#464646;
+    height: 16.5rem;
     width: 18.4rem;
     padding: .6945rem;
 }
@@ -52,7 +52,7 @@
     }
 }
 
-.title{
+.title, .year, .tags{
     font-family: Inter;
     font-weight: 400;
     line-height: 20px;
@@ -60,7 +60,17 @@
     text-align: left;
 }
 
+p{
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+}
+
 .title{
+    margin-top:1.25rem;
     font-size: 15px;
 }
 
+.year, .tags
+{
+    font-size: 14px;
+}
