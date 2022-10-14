@@ -5,6 +5,7 @@
 ->I purposefully used prop-drilling for state management , Although I could have used Redux as well
 
 ->There is an introduced delay of around 3-4 seconds before displaying the movie items, to demonstrate the loading skeleton
+#### Filters
 
 ->Additionaly I love solving DSA problems on codechef, hackerrank, leetcode etc. and trying to become a better fullstack developer
 
