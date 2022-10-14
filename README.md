@@ -2,7 +2,7 @@
 
 The project is hosted on AWS with Amplify service.<br>
 I purposefully used prop-drilling for state management , Although I could have used Redux as well.<br>
-There is an introduced delay of around 3-4 seconds before displaying the movie items, to demonstrate the loading skeleton.
+There is an introduced random delay of (3-4) seconds before displaying the movie items, to demonstrate the loading skeleton.
 
 #### Filters
 Every movie has certain number of tags associated with it, ex-["action", "adventure", "comedy"]. If you select multiple filters then all the movies which have any of those tags will be filtred and displayed. That is to say that multiple filters are in OR mode insted of AND, which seemed to me more reasonable for a movies website.
