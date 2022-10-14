@@ -1,4 +1,5 @@
 .cardWrapper{
+    margin: auto;
     height: 20.1rem;
     width: 18.4rem;
     padding: .6945rem;
@@ -111,3 +112,4 @@
 .title{
     font-size: 15px;
 }
+

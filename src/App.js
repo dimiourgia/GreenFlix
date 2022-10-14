@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import './App.css';
 import AppBar from './Components/AppBar/AppBar';
 import Filters from './Components/Filters/Filters';
 import HomeSkeleton from './Components/HomeSkeleton/HomeSkeleton';
@@ -16,12 +17,18 @@ function App() {
   const [movieList, setMovieList] = useState(JSON_data.movies); //movies displayed on page
   const [activeFilters, setActiveFilters] = useState([]);
 
-  //searcbox states and methods
+  //searcbox states, variable and methods
+  
   const [searchString, setSearchString] = React.useState('');
   const searchStringChageHandler = (event) =>{
     setSearchString(event.target.value);
     if(event.target.value!=''){
-      var searchedFor = JSON_data.movies.filter(movie=>movie.title.includes(event.target.value));
+      var searchedFor = JSON_data.movies.filter(movie => movie.title.toLowerCase().includes(event.target.value.toLowerCase()));
+      console.log(searchedFor);
+      
+      if(searchedFor.length == 0) setMessageClass("displayMessage");
+      else setMessageClass("hide");
+
       setMovieList(searchedFor);
     }
     else{
@@ -159,19 +166,10 @@ function App() {
     }
   }
 
- 
- 
-  /*
-  const filters = {
-    applyMovieFilter:moviesFilterHandler, 
-    applyTVShowFilter:tvshowsFilterHandler,
-    applyActionFilter:actionFilterHandler
-  };
-  
-  */
 
-  //simulate fetching api with a delay of 4,6 seconds
-  const delay = Math.floor(Math.random() * 2000) + 1000;
+
+  //simulate fetching api with a delay of 3,4 seconds
+  const delay = Math.floor(Math.random() * 4000) + 3000;
   const [loaded, setLoaded] = useState(false);
 
   const apiCall = ()=>{
@@ -182,8 +180,8 @@ function App() {
 
   //update state whenever a filter is applied or removed
 
-    //function that rturns a new array of movies/tvshows after applying a bunch of filters
-    const filterdArray = (filters, movies) => {
+    //function that rturns a new array of movies after applying a bunch of filters
+    function filterdArray (filters, movies){
       var result=[];
         
         filters.forEach(filter =>{
@@ -210,9 +208,12 @@ function App() {
     
   },[activeFilters])
 
-
+// Error message 
+  const [messageClass, setMessageClass] = useState("hide");
+  const message = "Oops.. seems like we don't have the movie you are looking for !";
   return (
     <div>
+      <div className={messageClass}>{message}</div>
       <AppBar
       searchString = {searchString} 
       onChangeHandler = {searchStringChageHandler} 
