@@ -16,7 +16,7 @@
     margin:auto;
     background-color: var(--sk_primary);
     box-sizing: border-box;
-    height: 18rem;
+    height: 16.5rem;
     width: 18.4rem;
     padding: .6945rem;
 }
@@ -52,14 +52,14 @@
     margin-bottom: 5px;
     border-radius: 2px;
     width: 35%;
-    height: 1.52rem;
+    height: 1.3rem;
     background-color: var(--sk_secondary);
 }
 
 .sk_itemTags{
     margin-top: 3px;
     padding: 0px;
-    height:1.52rem;
+    height:1.3rem;
     width: 55%;
     background-color: var(--sk_secondary);
 }
