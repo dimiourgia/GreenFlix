@@ -5,7 +5,6 @@ import './Home.css';
 
 const Home = ({items}) => {
     return(
-   
     <div className="cardsContainer">
         {items.map(item => 
         <ItemCard 

@@ -3,13 +3,17 @@
     z-index: 100;
     background: #fff;
     margin-top:-5.937rem;
-    padding:1rem;
+    padding-left:1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-top: .75rem;
     width:100%;
     box-sizing: border-box;
     box-shadow: 1px 1px 0px 0px #e9e9e9;
 }
 .filtersWrapper>button{
-    margin-left: 8px;
+    margin-top:.25rem;
+    margin-left: .5rem;
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 600;

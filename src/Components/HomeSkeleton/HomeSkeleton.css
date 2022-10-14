@@ -13,9 +13,9 @@
 }
 
 .sk_cardWrapper{
+    margin:auto;
     background-color: var(--sk_primary);
     box-sizing: border-box;
-    margin:5px;
     height: 20.1rem;
     width: 18.4rem;
     padding: .6945rem;
