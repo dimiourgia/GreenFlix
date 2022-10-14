@@ -1,16 +1,14 @@
 ## Dear Evaluator @Rjwda
 
-##### The project is hosted on AWS with Amplify service
-##### I purposefully used prop-drilling for state management , Although I could have used Redux as well
-##### There is an introduced delay of around 3-4 seconds before displaying the movie items, to demonstrate the loading skeleton
+The project is hosted on AWS with Amplify service
+I purposefully used prop-drilling for state management , Although I could have used Redux as well
+There is an introduced delay of around 3-4 seconds before displaying the movie items, to demonstrate the loading skeleton
 
 #### Filters
-
-##### Every movie has certain number of tags associated with it, ex-["action", "adventure", "comedy"]. If you select multiple tags then all the movies which have any of those tags will be filtred and displayed. That is to say that multiple filters are in OR mode insted of AND, which seemed to me more reasonable for a movies website.
+Every movie has certain number of tags associated with it, ex-["action", "adventure", "comedy"]. If you select multiple tags then all the movies which have any of those tags will be filtred and displayed. That is to say that multiple filters are in OR mode insted of AND, which seemed to me more reasonable for a movies website.
 
 #### Additionaly
-
-##### I love solving DSA problems on codechef, hackerrank, leetcode etc. and trying to become a better fullstack developer
+I love solving DSA problems on codechef, hackerrank, leetcode etc. and trying to become a better fullstack developer
 
 
 
