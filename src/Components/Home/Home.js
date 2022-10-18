@@ -22,7 +22,7 @@ const Home = ({items}) => {
 
 const ItemCard = ({title, year, image, tags }) => {
     return(
-    <motion.div animate={{opacity:1}} initial={{opacity:0}}  whileHover={{scale:1.15, transition:1}}  className="cardWrapper">
+    <motion.div animate={{opacity:1}} initial={{opacity:0}}  whileHover={{scale:1.145, transition:1}}  className="cardWrapper">
         <div className="itemImageContainer">
             <img src={image} alt={title+year} />
         </div>
