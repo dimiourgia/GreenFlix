@@ -10,6 +10,9 @@ Every movie has certain number of tags associated with it, ex-["action", "advent
 #### Additionaly
 I love solving DSA problems on codechef, hackerrank, leetcode etc. and trying to become a better fullstack developer
 
+## Website Link
+#### https://master.d2ce8q4p5ubwzc.amplifyapp.com/
+
 
 
 
