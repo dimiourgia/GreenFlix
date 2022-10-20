@@ -1,0 +1,15 @@
+.signUpWrapper{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpFormWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpwithGoogle{
+    display: flex;
+}
