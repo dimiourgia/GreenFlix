@@ -5,6 +5,8 @@ import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
 import leftLogo from '../../images/GFLogo.png';
 import searchLogo from '../../images/searchLogo.svg';
 import closeLogo from '../../images/close.svg';
+import Signin from '../Signin/Signin';
+import Signup from '../Signup/Signup';
 
 
 const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
@@ -14,12 +16,12 @@ const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
             <div className='firstWrapper'>
                 <img id="leftLogo" src={leftLogo} alt='logo'></img>
             </div>
-            
-            
             <div className='midWrapper'>
                 <SearchBox searchString={searchString} onChangeHandler={onChangeHandler} clearSearchString={clearSearchString}></SearchBox>
             </div>
             <div className='lastWrapper'>
+                <button className='signInButton'>Sign In</button>
+                <button className='signUpButton'>Sign Up</button>
             </div>
 
         </motion.div>
