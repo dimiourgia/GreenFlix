@@ -1,15 +1,25 @@
-.signUpWrapper{
+.signupWrapper{
     display: flex;
     text-align: center;
     flex-direction: column;
     align-items: center;
 }
 
-.signUpFormWrapper{
+.signupFormWrapper{
     display: flex;
     flex-direction: column;
 }
 
-.signUpwithGoogle{
+.signupwithGoogle{
     display: flex;
+}
+
+.overlay{
+    position: absolute;
+    left: 0px;
+    top:5rem;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.4);
 }

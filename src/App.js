@@ -5,6 +5,7 @@ import AppBar from './Components/AppBar/AppBar';
 import Filters from './Components/Filters/Filters';
 import HomeSkeleton from './Components/HomeSkeleton/HomeSkeleton';
 import Home from './Components/Home/Home';
+import Signup from './Components/Signup/Signup';
 import JSON_data from './databae.json';
 
 
@@ -13,7 +14,7 @@ function App() {
 
   //ApBar states and methods
  
-
+  const [displaySignUpOverlay, setDisplaySignupOverlay] = useState(false);
   const [movieList, setMovieList] = useState(JSON_data.movies); //movies displayed on page
   const [activeFilters, setActiveFilters] = useState([]);
 
@@ -169,7 +170,7 @@ function App() {
 
 
   //simulate fetching api with a delay of 3,4 seconds
-  const delay = Math.floor(Math.random() * 4000) + 3000;
+  const delay = Math.floor(Math.random() * 1000);
   const [loaded, setLoaded] = useState(false);
 
   const apiCall = ()=>{
@@ -218,10 +219,13 @@ function App() {
       searchString = {searchString} 
       onChangeHandler = {searchStringChageHandler} 
       clearSearchString= {clearSearchString} 
+      displaySignUpOverlay = {displaySignUpOverlay}
+      setDisplaySignupOverlay = {setDisplaySignupOverlay}
       ></AppBar>
       <Filters filterHandler={filterHandler} classnames={classnames}></Filters>
       {!loaded && <HomeSkeleton/>}
-      {loaded && <Home items={movieList}></Home>}      
+      {loaded && <Home items={movieList}></Home>}
+      {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} />}      
     </div>
   );
 }

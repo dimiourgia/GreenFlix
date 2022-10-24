@@ -9,7 +9,15 @@ import Signin from '../Signin/Signin';
 import Signup from '../Signup/Signup';
 
 
-const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
+const AppBar = ({
+    searchString, 
+    onChangeHandler, 
+    clearSearchString, 
+    displaySignUpOverlay, 
+    setDisplaySignupOverlay
+})=>{
+
+    
 
     return(
         <motion.div animate={{opacity:1}} initial={{opacity:0}} id='AppBar'>
@@ -21,7 +29,7 @@ const AppBar = ({searchString, onChangeHandler, clearSearchString})=>{
             </div>
             <div className='lastWrapper'>
                 <button className='signInButton'>Sign In</button>
-                <button className='signUpButton'>Sign Up</button>
+                <button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(!displaySignUpOverlay); document.body.style.overflow='hidden'}}>Sign Up</button>
             </div>
 
         </motion.div>
