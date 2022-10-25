@@ -1,13 +1,37 @@
 .signupWrapper{
+    border-radius: 5px;
+    width:380px;
+    height:80%;
+    padding:10px;
+    margin:auto;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
     display: flex;
     text-align: center;
     flex-direction: column;
     align-items: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 158%;
+    z-index: 250;
 }
 
 .signupFormWrapper{
+    margin-top: 20px;
+    width: 88%;
+    height: 70%;
     display: flex;
     flex-direction: column;
+}
+
+.signupFormWrapper>input{
+    margin-bottom: 10px;
+    height: 34px;
+    border-radius: 10px;
+    border: 2px solid rgb(53, 52, 52);
 }
 
 .signupwithGoogle{
@@ -15,9 +39,12 @@
 }
 
 .overlay{
-    position: absolute;
+    display: flex;
+    align-items: center;
+    margin:auto;
+    position: fixed;
     left: 0px;
-    top:5rem;
+    top:0px;
     width: 100vw;
     height: 100vh;
     z-index: 200;
