@@ -26,9 +26,6 @@ function App() {
     if(event.target.value!=''){
       var searchedFor = JSON_data.movies.filter(movie => movie.title.toLowerCase().includes(event.target.value.toLowerCase()));
       console.log(searchedFor);
-      
-      if(searchedFor.length == 0) setMessageClass("displayMessage");
-      else setMessageClass("hide");
 
       setMovieList(searchedFor);
     }
@@ -208,6 +205,18 @@ function App() {
     console.log("from useEffect:");
     
   },[activeFilters])
+
+
+  useEffect(()=>{
+    if(movieList.length==0){
+      setMessageClass("displayMessage");
+    }
+
+    else if(messageClass=='displayMessage'){
+      setMessageClass('hide');
+    }
+    
+  },[movieList.length])
 
 // Error message 
   const [messageClass, setMessageClass] = useState("hide");

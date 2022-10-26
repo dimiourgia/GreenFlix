@@ -7,7 +7,7 @@ const Signup = ({setDisplaySignupOverlay})=>{
         <div className="signupWrapper">
             <div className="signupFormWrapper">
                 <input type='text' placeholder="Name"></input>
-                <input type='text' placeholder="Name"></input>
+                <input type='text' placeholder="Email"></input>
                 <input type='password' placeholder="Password"></input>
                 <input type='password' placeholder="Confirm Password"></input>        
             </div>
