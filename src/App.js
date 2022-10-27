@@ -42,130 +42,6 @@ function App() {
   //---------------------------------------------------------------
 
 
-
-  //classnames for filters and their states
-
-  const [actionClass, setActionClass] = useState('unselected');
-  const [adventureClass, setAdventureClass] = useState('unselected');
-  const [comedyClass, setComedyClass] = useState('unselected');
-  const [thrillerClass, setThrillerClass] = useState('unselected');
-  const [familyClass, setFamilyClass] = useState('unselected');
-
-  const classnames = {
-    action:actionClass,
-    adventure:adventureClass,
-    comedy:comedyClass,
-    thriller:thrillerClass,
-    family:familyClass
-  }
-
-
-  //HOF for handling all filter clicking events -> returns a handler for that event 
-
-  const filterHandler = function(filter){
-    const debug = true;
-
-    switch(filter){
-
-      case "action": 
-      return () => {
-          if(debug) console.log('action filter clicked'); 
-          if(actionClass=='unselected'){  
-            setActionClass('selected');
-            setActiveFilters([...activeFilters,'action']);
-            if(debug) console.log(activeFilters);
-          }
-          else{
-            setActionClass('unselected');
-            const updatedActiveFilters = activeFilters.slice();
-            const index = updatedActiveFilters.indexOf('action');
-            updatedActiveFilters.splice(index,1);
-            setActiveFilters(updatedActiveFilters);
-            if(debug) console.log(updatedActiveFilters);
-          }
-      }
-
-      case "adventure": 
-      return () => {
-          if(debug) console.log('adventure filter clicked'); 
-          if(adventureClass=='unselected'){  
-            setAdventureClass('selected');
-            setActiveFilters([...activeFilters,'adventure']);
-            if(debug) console.log(activeFilters);
-          }
-          else{
-            setAdventureClass('unselected');
-            const updatedActiveFilters = activeFilters.slice();
-            const index = updatedActiveFilters.indexOf('adventure');
-            updatedActiveFilters.splice(index,1);
-            setActiveFilters(updatedActiveFilters);
-            if(debug) console.log(activeFilters);
-          }
-      }
-
-      case "comedy": 
-      return () => {
-          if(debug) console.log('comedy filter clicked'); 
-          if(comedyClass=='unselected'){  
-            setComedyClass('selected');
-            setActiveFilters([...activeFilters,'comedy']);
-            if(debug) console.log(activeFilters);
-          }
-          else{
-            setComedyClass('unselected');
-            const updatedActiveFilters = activeFilters.slice();
-            const index = updatedActiveFilters.indexOf('comedy');
-            updatedActiveFilters.splice(index,1);
-            setActiveFilters(updatedActiveFilters);
-            if(debug) console.log(activeFilters);
-          }
-      }
-
-      case "thriller": 
-      return () => {
-          if(debug) console.log('thriller filter clicked'); 
-          if(thrillerClass=='unselected'){  
-            setThrillerClass('selected');
-            setActiveFilters([...activeFilters,'thriller']);
-            if(debug) console.log(activeFilters);
-          }
-          else{
-            setThrillerClass('unselected');
-            const updatedActiveFilters = activeFilters.slice();
-            const index = updatedActiveFilters.indexOf('thriller');
-            updatedActiveFilters.splice(index,1);
-            setActiveFilters(updatedActiveFilters);
-            if(debug) console.log(activeFilters);
-          }
-      }
-
-      case "family": 
-      return () => {
-          if(debug) console.log('family filter clicked'); 
-          if(familyClass=='unselected'){  
-            setFamilyClass('selected');
-            setActiveFilters([...activeFilters,'family']);
-            if(debug) console.log(activeFilters);
-          }
-          else{
-            setFamilyClass('unselected');
-            const updatedActiveFilters = activeFilters.slice();
-            const index = updatedActiveFilters.indexOf('family');
-            updatedActiveFilters.splice(index,1);
-            setActiveFilters(updatedActiveFilters);
-            if(debug) console.log(activeFilters);
-          }
-      }
-
-
-
-
-      default: return;
-    }
-  }
-
-
-
   //simulate fetching api with a delay of 3,4 seconds
   const delay = Math.floor(Math.random() * 1000);
   const [loaded, setLoaded] = useState(false);
@@ -231,7 +107,7 @@ function App() {
       displaySignUpOverlay = {displaySignUpOverlay}
       setDisplaySignupOverlay = {setDisplaySignupOverlay}
       ></AppBar>
-      <Filters filterHandler={filterHandler} classnames={classnames}></Filters>
+      <Filters filters={activeFilters} setActiveFilters={setActiveFilters}></Filters>
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}
       {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} />}      
