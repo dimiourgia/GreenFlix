@@ -1,10 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import './Signup.css';
 
 const Signup = ({setDisplaySignupOverlay})=>{
+
+    const [overlayClicked, setOverlayClicked] = useState(false);
+    const [signupWrapperClicked, setSignupWrapperClicked] = useState(false);
+
     return(
-    <div className="overlay" onClick={()=>{setDisplaySignupOverlay(false); document.body.style.overflow='visible'}}>
-        <div className="signupWrapper">
+    <div className="overlay" onClick={()=>{console.log('clicked overlay');setDisplaySignupOverlay(false); document.body.style.overflow='visible'}}>
+        <div className="signupWrapper" onClick={(event)=>{event.stopPropagation();}} >
             <div className="signupFormWrapper">
                 <input type='text' placeholder="Name"></input>
                 <input type='text' placeholder="Email"></input>
