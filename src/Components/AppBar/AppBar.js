@@ -13,8 +13,8 @@ const AppBar = ({
     searchString, 
     onChangeHandler, 
     clearSearchString, 
-    displaySignUpOverlay, 
-    setDisplaySignupOverlay
+    setDisplaySignupOverlay,
+    setDisplaySigninOverlay
 })=>{
 
     
@@ -28,8 +28,8 @@ const AppBar = ({
                 <SearchBox searchString={searchString} onChangeHandler={onChangeHandler} clearSearchString={clearSearchString}></SearchBox>
             </div>
             <div className='lastWrapper'>
-                <button className='signInButton'>Sign In</button>
-                <button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(!displaySignUpOverlay); document.body.style.overflow='hidden'}}>Sign Up</button>
+                <button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>
+                <button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(true); document.body.style.overflow='hidden'}}>Sign Up</button>
             </div>
 
         </motion.div>

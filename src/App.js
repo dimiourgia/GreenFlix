@@ -7,6 +7,7 @@ import HomeSkeleton from './Components/HomeSkeleton/HomeSkeleton';
 import Home from './Components/Home/Home';
 import Signup from './Components/Signup/Signup';
 import JSON_data from './databae.json';
+import Signin from './Components/Signin/Signin';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   //ApBar states and methods
  
   const [displaySignUpOverlay, setDisplaySignupOverlay] = useState(false);
+  const [displaySigninOverlay, setDisplaySigninOverlay] = useState(false);
+
   const [movieList, setMovieList] = useState(JSON_data.movies); //movies displayed on page
   const [activeFilters, setActiveFilters] = useState([]);
 
@@ -104,13 +107,14 @@ function App() {
       searchString = {searchString} 
       onChangeHandler = {searchStringChageHandler} 
       clearSearchString= {clearSearchString} 
-      displaySignUpOverlay = {displaySignUpOverlay}
       setDisplaySignupOverlay = {setDisplaySignupOverlay}
+      setDisplaySigninOverlay={setDisplaySigninOverlay}
       ></AppBar>
       <Filters filters={activeFilters} setActiveFilters={setActiveFilters}></Filters>
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}
-      {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} />}      
+      {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} />} 
+      {displaySigninOverlay && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
     </div>
   );
 }

@@ -38,7 +38,7 @@
     display: flex;
 }
 
-.overlay{
+.signupOverlay{
     display: flex;
     align-items: center;
     margin:auto;
