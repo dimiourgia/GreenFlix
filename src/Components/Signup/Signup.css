@@ -50,3 +50,17 @@
     z-index: 200;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+.signupButton{
+    border: 0px;
+    background-color: var(--primary);
+    color: white;
+    height: 34px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    font-size: 14.5px;
+    cursor: pointer;
+
+}

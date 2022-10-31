@@ -13,6 +13,8 @@ import Signin from './Components/Signin/Signin';
 function App() {
 
 
+  console.log(process.env);
+
   //ApBar states and methods
  
   const [displaySignUpOverlay, setDisplaySignupOverlay] = useState(false);
