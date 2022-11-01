@@ -50,3 +50,9 @@
     z-index: 200;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+.signInSubmitButton{
+    height:33px;
+    margin-top: 20px;
+    background-color: var(--primary);
+}

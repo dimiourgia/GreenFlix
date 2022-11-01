@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import './Signup.css';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
 const Signup = ({setDisplaySignupOverlay})=>{
@@ -24,6 +24,7 @@ const Signup = ({setDisplaySignupOverlay})=>{
         }
 
     }
+
 
 
 
