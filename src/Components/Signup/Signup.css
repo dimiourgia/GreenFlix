@@ -28,10 +28,9 @@
 }
 
 .signupFormWrapper>input{
-    margin-bottom: 10px;
-    height: 34px;
-    border-radius: 10px;
-    border: 2px solid rgb(53, 52, 52);
+    margin-bottom: 16px;
+    height: 32px;
+    border: 1px solid #dfdede;
 }
 
 .signupwithGoogle{
@@ -62,5 +61,6 @@
     line-height: 150%;
     font-size: 14.5px;
     cursor: pointer;
+    margin-top:22px;
 
 }

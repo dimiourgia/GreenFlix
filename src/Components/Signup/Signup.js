@@ -20,7 +20,7 @@ const Signup = ({setDisplaySignupOverlay})=>{
             console.log(userCredentials);
         }
         catch(error){
-            console.log(error);
+            console.log(error.message);
         }
 
     }
@@ -36,7 +36,7 @@ const Signup = ({setDisplaySignupOverlay})=>{
                 <input type='text' placeholder="Email" ref={emailRef}></input>
                 <input type='password' placeholder="Password" ref={passwordRef}></input>
                 <input type='password' placeholder="Confirm Password" ref={confirmPasswordRef}></input> 
-                <button className="signupButton" onClick={createUser}>Sign UP</button>       
+                <button className="signupButton" onClick={createUser}>Sign Up</button>       
             </div>
             <span>OR</span>
 
