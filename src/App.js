@@ -12,6 +12,8 @@ import Signin from './Components/Signin/Signin';
 
 function App() {
 
+  //login
+  const [loggedIn, setLoggedIn] = useState('false');
 
   console.log(process.env);
 
@@ -115,8 +117,8 @@ function App() {
       <Filters filters={activeFilters} setActiveFilters={setActiveFilters}></Filters>
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}
-      {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} />} 
-      {displaySigninOverlay && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
+      {displaySignUpOverlay && !loggedIn && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} loggedIn = {loggedIn} setLoggedIn={setLoggedIn} />} 
+      {displaySigninOverlay && !loggedIn && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
     </div>
   );
 }

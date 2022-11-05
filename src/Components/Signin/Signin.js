@@ -16,6 +16,7 @@ const Signin = ({setDisplaySigninOverlay})=>{
             console.log(userCredentials);
         }
         catch(error){
+            console.log(error.message);
         }
     }
 

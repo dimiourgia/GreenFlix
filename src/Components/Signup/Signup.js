@@ -4,7 +4,7 @@ import './Signup.css';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
-const Signup = ({setDisplaySignupOverlay})=>{
+const Signup = ({setDisplaySignupOverlay, loggedIn, setLoggedIn})=>{
 
 
     const nameRef=useRef();
@@ -18,6 +18,7 @@ const Signup = ({setDisplaySignupOverlay})=>{
         try{
             const userCredentials = await createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value);
             console.log(userCredentials);
+            setLoggedIn(true);
         }
         catch(error){
             console.log(error.message);
