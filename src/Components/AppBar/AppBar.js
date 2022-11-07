@@ -5,8 +5,6 @@ import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
 import leftLogo from '../../images/GFLogo.png';
 import searchLogo from '../../images/searchLogo.svg';
 import closeLogo from '../../images/close.svg';
-import Signin from '../Signin/Signin';
-import Signup from '../Signup/Signup';
 
 
 const AppBar = ({
@@ -14,10 +12,11 @@ const AppBar = ({
     onChangeHandler, 
     clearSearchString, 
     setDisplaySignupOverlay,
-    setDisplaySigninOverlay
+    setDisplaySigninOverlay,
+    loggedIn
 })=>{
 
-    
+
 
     return(
         <motion.div animate={{opacity:1}} initial={{opacity:0}} id='AppBar'>
@@ -28,8 +27,9 @@ const AppBar = ({
                 <SearchBox searchString={searchString} onChangeHandler={onChangeHandler} clearSearchString={clearSearchString}></SearchBox>
             </div>
             <div className='lastWrapper'>
-                <button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>
-                <button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(true); document.body.style.overflow='hidden'}}>Sign Up</button>
+                { !loggedIn &&  <SgninButton setDisplaySigninOverlay = {setDisplaySigninOverlay} /> }
+                { !loggedIn &&  <SgnupButton setDisplaySignupOverlay={setDisplaySignupOverlay} /> }
+                
             </div>
 
         </motion.div>
@@ -58,5 +58,8 @@ return(
     </>
 )
 }
+
+const SgnupButton = ({setDisplaySignupOverlay}) => (<button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(true); document.body.style.overflow='hidden'}}>Sign Up</button>)
+const SgninButton = ({  setDisplaySigninOverlay}) => (<button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>)
 
 export default AppBar;

@@ -113,12 +113,13 @@ function App() {
       clearSearchString= {clearSearchString} 
       setDisplaySignupOverlay = {setDisplaySignupOverlay}
       setDisplaySigninOverlay={setDisplaySigninOverlay}
+      loggedIn = {loggedIn}
       ></AppBar>
       <Filters filters={activeFilters} setActiveFilters={setActiveFilters}></Filters>
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}
-      {displaySignUpOverlay && !loggedIn && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} loggedIn = {loggedIn} setLoggedIn={setLoggedIn} />} 
-      {displaySigninOverlay && !loggedIn && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
+      {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} setLoggedIn={setLoggedIn} />} 
+      {displaySigninOverlay && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
     </div>
   );
 }
