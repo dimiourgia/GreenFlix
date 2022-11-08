@@ -15,7 +15,6 @@ function App() {
   //login
   const [loggedIn, setLoggedIn] = useState('false');
 
-  console.log(process.env);
 
   //ApBar states and methods
  
