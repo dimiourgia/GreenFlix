@@ -13,7 +13,7 @@ import Signin from './Components/Signin/Signin';
 function App() {
 
   //login
-  const [loggedIn, setLoggedIn] = useState('false');
+  const [loggedIn, setLoggedIn] = useState(false);
 
 
   //ApBar states and methods
@@ -118,7 +118,7 @@ function App() {
       {!loaded && <HomeSkeleton/>}
       {loaded && <Home items={movieList}></Home>}
       {displaySignUpOverlay && <Signup setDisplaySignupOverlay={setDisplaySignupOverlay} setLoggedIn={setLoggedIn} />} 
-      {displaySigninOverlay && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay}/>}     
+      {displaySigninOverlay && <Signin setDisplaySigninOverlay={setDisplaySigninOverlay} setLoggedIn={setLoggedIn} />}     
     </div>
   );
 }

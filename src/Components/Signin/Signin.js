@@ -4,7 +4,7 @@ import './Signin.css';
 import {auth} from '../../firebase';
 import { signInWithEmailAndPassword } from "firebase/auth"; 
 
-const Signin = ({setDisplaySigninOverlay})=>{
+const Signin = ({setDisplaySigninOverlay, setLoggedIn})=>{
 
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -14,6 +14,8 @@ const Signin = ({setDisplaySigninOverlay})=>{
         try{
             const userCredentials =  await signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value);
             console.log(userCredentials);
+            setLoggedIn(true);
+            setDisplaySigninOverlay(false);
         }
         catch(error){
             console.log(error.message);

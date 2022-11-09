@@ -60,6 +60,6 @@ return(
 }
 
 const SgnupButton = ({setDisplaySignupOverlay}) => (<button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(true); document.body.style.overflow='hidden'}}>Sign Up</button>)
-const SgninButton = ({  setDisplaySigninOverlay}) => (<button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>)
+const SgninButton = ({ setDisplaySigninOverlay}) => (<button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>)
 
 export default AppBar;
