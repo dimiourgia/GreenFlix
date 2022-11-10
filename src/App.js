@@ -113,6 +113,7 @@ function App() {
       setDisplaySignupOverlay = {setDisplaySignupOverlay}
       setDisplaySigninOverlay={setDisplaySigninOverlay}
       loggedIn = {loggedIn}
+      setLoggedIn = {setLoggedIn}
       ></AppBar>
       <Filters filters={activeFilters} setActiveFilters={setActiveFilters}></Filters>
       {!loaded && <HomeSkeleton/>}

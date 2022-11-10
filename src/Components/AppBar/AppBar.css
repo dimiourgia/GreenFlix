@@ -91,7 +91,7 @@
     position: relative;
 }
 
-.signInButton, .signUpButton{
+.signInButton, .signUpButton, .signOutButton{
     position: absolute;
     width: fit-content;
     margin-top: .74rem;
@@ -114,6 +114,10 @@
 .signUpButton{
     margin-left: 10px;
     right: 20px;
+}
+
+.signOutButton{
+    margin-right: 172px;
 }
 
 .inputSearch{

@@ -5,7 +5,7 @@ import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion';
 import leftLogo from '../../images/GFLogo.png';
 import searchLogo from '../../images/searchLogo.svg';
 import closeLogo from '../../images/close.svg';
-
+import { auth } from '../../firebase';
 
 const AppBar = ({
     searchString, 
@@ -13,7 +13,8 @@ const AppBar = ({
     clearSearchString, 
     setDisplaySignupOverlay,
     setDisplaySigninOverlay,
-    loggedIn
+    loggedIn,
+    setLoggedIn
 })=>{
 
 
@@ -29,6 +30,7 @@ const AppBar = ({
             <div className='lastWrapper'>
                 { !loggedIn &&  <SgninButton setDisplaySigninOverlay = {setDisplaySigninOverlay} /> }
                 { !loggedIn &&  <SgnupButton setDisplaySignupOverlay={setDisplaySignupOverlay} /> }
+                {loggedIn && <SgnoutButton setLoggedIn={setLoggedIn} />}
                 
             </div>
 
@@ -61,5 +63,6 @@ return(
 
 const SgnupButton = ({setDisplaySignupOverlay}) => (<button className='signUpButton' onClick={()=>{setDisplaySignupOverlay(true); document.body.style.overflow='hidden'}}>Sign Up</button>)
 const SgninButton = ({ setDisplaySigninOverlay}) => (<button className='signInButton' onClick={()=>{setDisplaySigninOverlay(true); document.body.style.overflow='hidden'}}>Sign In</button>)
+const SgnoutButton = ({setLoggedIn}) => (<button className='signOutButton' onClick={()=>{ auth.signOut(); setLoggedIn(false); }}>Sign Out</button>)
 
 export default AppBar;
