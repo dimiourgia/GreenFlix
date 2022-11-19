@@ -37,7 +37,6 @@ const Filters = ({filters, setActiveFilters})=>{
             console.log(filters.indexOf(filter));
 
           if(filters.indexOf(filter)!=-1){
-            console.log(true);
             const updatedActiveFilters = filters.slice();
             const index = updatedActiveFilters.indexOf(filter);
             updatedActiveFilters.splice(index,1);
